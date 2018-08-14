@@ -1,0 +1,35 @@
+# CMake generation dependency list for this directory.
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/OpenCVConfig-version.cmake
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/OpenCVConfig.cmake
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/x64/vc14/lib/OpenCVConfig.cmake
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/x64/vc14/lib/OpenCVModules-debug.cmake
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/x64/vc14/lib/OpenCVModules-release.cmake
+C:/Program Files (x86)/ZED SDK/dependencies/opencv_3.1.0/x64/vc14/lib/OpenCVModules.cmake
+C:/Program Files (x86)/ZED SDK/zed-config-version.cmake
+C:/Program Files (x86)/ZED SDK/zed-config.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/FindCUDA.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/FindCUDA/select_compute_arch.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/Platform/WindowsPaths.cmake
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/3.12.0-rc1/CMakeCCompiler.cmake
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/3.12.0-rc1/CMakeCXXCompiler.cmake
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/3.12.0-rc1/CMakeRCCompiler.cmake
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/3.12.0-rc1/CMakeSystem.cmake

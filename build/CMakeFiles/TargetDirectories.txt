@@ -1,0 +1,3 @@
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/ZED_with_OpenCV.dir
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/ZERO_CHECK.dir

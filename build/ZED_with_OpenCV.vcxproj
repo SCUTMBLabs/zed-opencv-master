@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DD1365EB-0CB6-3A59-8F85-221EED8133C6}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ZED_with_OpenCV</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ZED_with_OpenCV.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ZED_with_OpenCV</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ZED_with_OpenCV.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ZED_with_OpenCV</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ZED_with_OpenCV.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ZED_with_OpenCV</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ZED_with_OpenCV.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ZED_with_OpenCV</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -g -O3</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files (x86)\ZED SDK\lib\sl_zed64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_input64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_core64.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppial.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicom.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppidei.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppif.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppig.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppim.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppist.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppisu.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppitc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\npps.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/ZED SDK/lib;C:/Program Files (x86)/ZED SDK/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/Debug/ZED_with_OpenCV.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/Debug/ZED_with_OpenCV.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -g -O3</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files (x86)\ZED SDK\lib\sl_zed64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_input64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_core64.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppial.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicom.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppidei.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppif.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppig.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppim.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppist.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppisu.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppitc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\npps.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/ZED SDK/lib;C:/Program Files (x86)/ZED SDK/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/Release/ZED_with_OpenCV.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/Release/ZED_with_OpenCV.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -g -O3</AdditionalOptions>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files (x86)\ZED SDK\lib\sl_zed64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_input64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_core64.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppial.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicom.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppidei.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppif.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppig.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppim.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppist.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppisu.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppitc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\npps.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/ZED SDK/lib;C:/Program Files (x86)/ZED SDK/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/MinSizeRel/ZED_with_OpenCV.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/MinSizeRel/ZED_with_OpenCV.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -g -O3</AdditionalOptions>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files (x86)\ZED SDK\include;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files (x86)\ZED SDK\lib\sl_zed64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_input64.lib;C:\Program Files (x86)\ZED SDK\lib\sl_core64.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\opencv_world310d.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppial.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppicom.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppidei.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppif.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppig.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppim.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppist.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppisu.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nppitc.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\npps.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/ZED SDK/lib;C:/Program Files (x86)/ZED SDK/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/RelWithDebInfo/ZED_with_OpenCV.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/RelWithDebInfo/ZED_with_OpenCV.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master -BC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build --check-stamp-file C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig-version.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-debug.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-release.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules.cmake;C:\Program Files (x86)\ZED SDK\zed-config-version.cmake;C:\Program Files (x86)\ZED SDK\zed-config.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCXXCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeRCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeSystem.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master -BC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build --check-stamp-file C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig-version.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-debug.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-release.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules.cmake;C:\Program Files (x86)\ZED SDK\zed-config-version.cmake;C:\Program Files (x86)\ZED SDK\zed-config.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCXXCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeRCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeSystem.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master -BC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build --check-stamp-file C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig-version.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-debug.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-release.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules.cmake;C:\Program Files (x86)\ZED SDK\zed-config-version.cmake;C:\Program Files (x86)\ZED SDK\zed-config.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCXXCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeRCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeSystem.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master -BC:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build --check-stamp-file C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/CMakeLists.txt;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig-version.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVConfig.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-debug.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules-release.cmake;C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\x64\vc14\lib\OpenCVModules.cmake;C:\Program Files (x86)\ZED SDK\zed-config-version.cmake;C:\Program Files (x86)\ZED SDK\zed-config.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeCXXCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeRCCompiler.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CMakeSystem.cmake;C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataProcess.cpp" />
+    <ClCompile Include="operation.cpp" />
+    <ClInclude Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include\SaveDepth.hpp" />
+    <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\SaveDepth.cpp" />
+    <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\main.cpp" />
+    <ClInclude Include="DataProcess.h" />
+    <ClInclude Include="operation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\ZERO_CHECK.vcxproj">
+      <Project>{CCB846CB-D21F-3FD2-BF47-986572C62726}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

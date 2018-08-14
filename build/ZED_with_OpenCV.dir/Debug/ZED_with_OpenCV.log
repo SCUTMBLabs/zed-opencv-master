@@ -1,0 +1,12 @@
+﻿cl : 命令行 warning D9002: 忽略未知选项“-g”
+cl : 命令行 warning D9002: 忽略未知选项“-O3”
+  main.cpp
+C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv2/core/mat.hpp(1965): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv2/core/persistence.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv2/core/utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Program Files (x86)\ZED SDK\dependencies\opencv_3.1.0\include\opencv2/core/utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\main.cpp(39): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\main.cpp(40): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\main.cpp(172): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  ZED_with_OpenCV.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\Debug\ZED_with_OpenCV.exe
+  ZED_with_OpenCV.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/Debug/ZED_with_OpenCV.pdb (Full PDB)
