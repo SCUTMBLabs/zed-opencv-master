@@ -3,9 +3,10 @@
 
 // Sample includes
 #include <SaveDepth.hpp>
-
+#include <iostream>
 #include"DataProcess.h"
-
+#include "TemplateMatch.h"
+#include <vector>
 using namespace sl;
 
 cv::Mat slMat2cvMat(Mat& input);
@@ -16,15 +17,19 @@ int main() {
 
 	Camera zed;
 	operation Operation;
+	TemplateMatch templ;
 	DataProcess dataProcess;
 	std::ofstream outfile;
 
 	outfile.open("C:\\Users\\Xie\\Desktop\\data.txt");
 	cv::namedWindow("RIGHT");
-	cv::setMouseCallback("RIGHT", operation::Mouse_getColor, 0);
+	cv::namedWindow("LEFT");  //要定义windows才能使用setMousecallBack
+	cv::setMouseCallback("RIGHT", TemplateMatch::on_Mouse_RIGHT, 0);   //MouseCallBack 要求静态函数 
+	cv::setMouseCallback("LEFT", TemplateMatch::on_Mouse_LEFT, 0);
 
 	InitParameters init_params;
-	init_params.camera_resolution = RESOLUTION_HD720;init_params.camera_fps = 60;
+	init_params.camera_resolution = RESOLUTION_HD720;//分辨率
+	init_params.camera_fps = 60;//帧数
 
 	ERROR_CODE err = zed.open(init_params);
 	if (err != SUCCESS) 
@@ -40,18 +45,17 @@ int main() {
 	int new_height = image_size.height / 2;
 	std::cout << new_width << " " << new_height << std::endl;
 
-	Mat image_zed(new_width, new_height, MAT_TYPE_8U_C4);
+	Mat image_zed(new_width, new_height, MAT_TYPE_8U_C3); //这里的通道数为4，最后一个通道必须除去不用
 
 	bool isTheFirstTimeOfLeft = true;
 	bool isTheFirstTimeOfRight = true;
 
-	cv::Point momentpointsEx[2][6];
-	cv::Point momentPoint[2][6];
-
+	cv::Point momentpointsEx[2][6];  //上一帧的点坐标
+	cv::Point momentPoint[2][6];	//前一帧点坐标
 	while (1) 
 	{
 		cv::Mat image1;cv::Mat image2;
-		if (zed.grab() == SUCCESS)//消耗3ms
+		if (zed.grab() == SUCCESS)//消耗3ms，取图片
 		{
 			int picture = 0;
 			while (picture < 2)
@@ -59,81 +63,97 @@ int main() {
 				if (picture == 0)
 				{
 					zed.retrieveImage(image_zed, VIEW_LEFT, MEM_CPU, new_width, new_height);//消耗5ms
-					Operation.image = slMat2cvMat(image_zed);
+					templ.image = slMat2cvMat(image_zed);  //格式转换
 				}
 				if (picture == 1)
 				{
 					zed.retrieveImage(image_zed, VIEW_RIGHT, MEM_CPU, new_width, new_height);//消耗5ms
-					Operation.image = slMat2cvMat(image_zed);
+					templ.image = slMat2cvMat(image_zed);
 					
 				}
-				dataProcess.image = Operation.image;
-	
-				if (operation::getColors)
+				dataProcess.image = templ.image;
+				// 删去最后一个不需要的通道
+				/*std::vector<cv::Mat> channels;
+				cv::split(templ.image, channels);
+				channels.pop_back();
+				cv::merge(channels, templ.image);
+				templ.image.convertTo(templ.image, CV_8U);*/
+				if (TemplateMatch::gettempl_RIGHT&& TemplateMatch::gettempl_LEFT)
 				{
+					
 					if (isTheFirstTimeOfLeft||isTheFirstTimeOfRight)
 					{
-						Operation.detectWindow = Operation.image.clone();
-						Operation.detectWindowPosition = cv::Point(0, 0);
-						Operation.getContoursAndMoment();
-						for (int i = 0; i < 6; i++)
-						{
-							momentPoint[picture][i] = Operation.momentpoints[i];
-							momentpointsEx[picture][i] = Operation.momentpoints[i];
-						}
+						 
+						 
+						//是第一次打开（左或者右）则用模板位置初始化momentPoint
+						
 						if (picture == 0)
 						{
+							for (int i = 0; i < 6; i++)
+							{
+								momentPoint[picture][i] = momentpointsEx[picture][i] = templ.init_template(i);
+								printf("left\n");
+							}
 							isTheFirstTimeOfLeft = false;
 						}
 						if (picture == 1)
+
 						{
+							for (int i = 0; i < 6; i++)
+							{
+								momentPoint[picture][i] = momentpointsEx[picture][i] = templ.init_template(i+6);
+								printf("right\n");
+							}
 							isTheFirstTimeOfRight = false;
 						}
-						Operation.threshold = 120;
+						 
 					}
 					else
 					{
+						//利用“伪卡尔曼滤波”更新预测的位置
 						for (int i = 0; i < 6; i++)
 						{
-							int temp_momentpointpositionx = static_cast<int>(momentPoint[picture][i].x+0.85*(momentPoint[picture][i].x - momentpointsEx[picture][i].x) - 20);
-							int temp_momentpointpositiony = static_cast<int>(momentPoint[picture][i].y+0.85*(momentPoint[picture][i].y - momentpointsEx[picture][i].y) - 20);//位置状态方程
-							Operation.detectWindowPosition = cv::Point(temp_momentpointpositionx, temp_momentpointpositiony);
-							Operation.detectWindow = Operation.image(cv::Rect(temp_momentpointpositionx, temp_momentpointpositiony, 40, 40)).clone();
-							cv::rectangle(Operation.image, cv::Point(temp_momentpointpositionx, temp_momentpointpositiony), cv::Point(temp_momentpointpositionx + 40, temp_momentpointpositiony + 40), cv::Scalar(0, 255, 0), 2, 8);
-							momentpointsEx[picture][i] = momentPoint[picture][i];
+							int temp_momentpointpositionx = static_cast<int>(momentPoint[picture][i].x+0.85*(momentPoint[picture][i].x - momentpointsEx[picture][i].x));
+							int temp_momentpointpositiony = static_cast<int>(momentPoint[picture][i].y+0.85*(momentPoint[picture][i].y - momentpointsEx[picture][i].y));//位置状态方程
+							templ.detectWindowPosition = cv::Point(temp_momentpointpositionx, temp_momentpointpositiony);//预测框中心点在整个图像上的位置
+							assert(temp_momentpointpositionx - 30 > 0 && temp_momentpointpositiony - 30 > 0 && temp_momentpointpositionx + 30 < templ.image.cols&&temp_momentpointpositiony + 30 < templ.image.rows);
+							//if(temp_momentpointpositionx - 30>0&& temp_momentpointpositiony - 30>0&& temp_momentpointpositionx + 30<templ.image.cols&&temp_momentpointpositiony + 30<templ.image.rows)
+							templ.detectWindow = templ.image(cv::Rect(temp_momentpointpositionx-30, temp_momentpointpositiony-30, 
+																60, 60)).clone();
+							//templ.detectWindow = templ.image;
+							//画出六个模板/矩形
+							cv::rectangle(templ.image, cv::Point(temp_momentpointpositionx-30, temp_momentpointpositiony-30), cv::Point(temp_momentpointpositionx + 30, temp_momentpointpositiony + 30), cv::Scalar(0, 255, 0), 2, 8); //预测中心
+							momentpointsEx[picture][i] = momentPoint[picture][i];	
+							if(picture==0)
+								momentPoint[picture][i]=templ.update_template(i)+ templ.detectWindowPosition-cv::Point(30,30);
+							if(picture==1)
+								momentPoint[picture][i] = templ.update_template(i+6)+ templ.detectWindowPosition - cv::Point(30, 30);//匹配中心
 
-							Operation.getContoursAndMoment();
-							if (i != 1)
-							{
-								momentPoint[picture][i] = Operation.momentpoints[0];
-							}
-							else
-							{
-								momentPoint[picture][i] = Operation.momentpoints[1];//保证当窗口出现两个轮廓时取点的合理性
-							}
 						}
+
 					}
 					for (int j = 0; j < 6; j++)
 					{
 						dataProcess.points[picture][j] = momentPoint[picture][j];
 					}
-					cv::line(Operation.image, momentPoint[picture][0], momentPoint[picture][1], cv::Scalar(0, 255, 0), 2);
-					cv::line(Operation.image, momentPoint[picture][2], momentPoint[picture][3], cv::Scalar(0, 255, 0), 2);
-					cv::line(Operation.image, momentPoint[picture][4], momentPoint[picture][5], cv::Scalar(0, 255, 0), 2);
+					//画出三组关节之间的连线
+					cv::line(templ.image, momentPoint[picture][0], momentPoint[picture][1], cv::Scalar(0, 255, 0), 2);
+					cv::line(templ.image, momentPoint[picture][2], momentPoint[picture][3], cv::Scalar(0, 255, 0), 2);
+					cv::line(templ.image, momentPoint[picture][4], momentPoint[picture][5], cv::Scalar(0, 255, 0), 2);
 				}//框内为取色后的操作
 				if (picture == 0)
 				{
-					cv::imshow("LEFT", Operation.image);
-					image1 = Operation.image.clone();//不使用clone（），image1和image2会指向同一个内存
+					cv::imshow("LEFT", templ.image);
+					image1 = templ.image.clone();//不使用clone（），image1和image2会指向同一个内存
 				}
 				if (picture == 1)
 				{
-					cv::imshow("RIGHT", Operation.image);
-					image2 = Operation.image.clone();
+					cv::imshow("RIGHT", templ.image);
+					image2 = templ.image.clone();
 				}
 				picture++;
 			}//框内为循环操作左右两张图片
-			if (operation::getColors)
+			if (TemplateMatch::gettempl_RIGHT && TemplateMatch::gettempl_LEFT)
 			{
 				dataProcess.getJointAngle();
 				outfile << "time:   " << dataProcess.time << "   hip:   " << dataProcess.hip << "   knee:   " << dataProcess.knee << "   ankle:   " << dataProcess.ankle << std::endl;
@@ -207,4 +227,9 @@ void matchImage(cv::Mat image1, cv::Mat image2, cv::Point momentPoint[2][6])
 		cv::line(image, momentPoint[0][k], tempPoint[k], cv::Scalar(0, 255, 0), 1);//注意momentPoint是全局变量
 	}
 	cv::imshow("Match", image);
+	char name[20];
+	SYSTEMTIME sys;
+	GetLocalTime(&sys);
+	sprintf(name, "%d.jpg", sys.wSecond+ sys.wMilliseconds);
+	cv::imwrite(name, image);
 }

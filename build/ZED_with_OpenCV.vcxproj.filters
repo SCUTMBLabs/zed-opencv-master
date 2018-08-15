@@ -1,21 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\DataProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\SaveDepth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\TemplateMatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="operation.cpp" />
-    <ClCompile Include="DataProcess.cpp" />
+    <ClCompile Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\src\operation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\include\SaveDepth.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="operation.h" />
-    <ClInclude Include="DataProcess.h" />
+    <ClInclude Include="..\include\DataProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\operation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TemplateMatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\CMakeLists.txt" />
