@@ -1,8 +1,6 @@
 #pragma once
 #include <opencv2/opencv.hpp>
-
 #include<iostream>
-
 #include<vector>
 
 #include<cmath>
@@ -33,7 +31,7 @@ public:
 	double maxValude;   //模板匹配result最大值
 	cv::Point minPoint;   //模板匹配result最小值位置
 	cv::Point maxPoint;    //模板匹配result最大值位置
-	
+	static cv::Point start_point[2][6]; //初始帧模板中点坐标
 	static std::vector<cv::Mat> Template_batch;
 	static int index_template ;
 	void static on_Mouse_RIGHT(int event, int x, int y, int, void*);
@@ -41,8 +39,7 @@ public:
 
 	cv::Point init_template(int i);
 	cv::Point update_template(int i);
-	 
-
-
+	static cv::Mat image_l;
+	static cv::Mat image_r;
 
 };
