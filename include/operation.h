@@ -34,7 +34,7 @@ public:
 	cv::Mat detectWindow;//¼ì²â´°¿Ú
 	cv::Point momentpoints[6];
 	cv::Point detectWindowPosition;
-	int threshold = 100;
+	int threshold = 50;
 
 
 };

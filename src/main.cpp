@@ -1,6 +1,6 @@
 // ZED includes
 #include <sl_zed/Camera.hpp>
-#define size_detection_window 30
+#define size_detection_window 40
 // Sample includes
 #include <SaveDepth.hpp>
 #include <iostream>
@@ -10,7 +10,7 @@
 using namespace sl;
 
 cv::Mat slMat2cvMat(Mat& input);
-void matchImage(cv::Mat image1, cv::Mat image2, cv::Point momentPoint[2][6]);
+void matchImage(cv::Mat image1, cv::Mat image2, cv::Point current_point[2][6]);
 
 
 int main() {
@@ -18,6 +18,7 @@ int main() {
 	Camera zed;
 	operation Operation;
 	TemplateMatch templ;
+	 
 	DataProcess dataProcess;
 	std::ofstream outfile;
 
@@ -25,9 +26,9 @@ int main() {
 	cv::namedWindow("LEFT");
 	cv::namedWindow("RIGHT");
 	 //要定义windows才能使用setMousecallBack
-	cv::setMouseCallback("LEFT", TemplateMatch::on_Mouse_LEFT, 0);
-	cv::setMouseCallback("RIGHT", TemplateMatch::on_Mouse_RIGHT, 0);   //MouseCallBack 要求静态函数 
-	
+	//cv::setMouseCallback("LEFT", TemplateMatch::on_Mouse_LEFT, 0);
+	//cv::setMouseCallback("RIGHT", TemplateMatch::on_Mouse_RIGHT, 0);   //MouseCallBack 要求静态函数 
+	cv::setMouseCallback("LEFT", templ.Mouse_getColor, 0);
 
 	InitParameters init_params;
 	init_params.camera_resolution = RESOLUTION_HD720;//分辨率
@@ -65,32 +66,48 @@ int main() {
 				{
 					zed.retrieveImage(image_zed, VIEW_LEFT, MEM_CPU, new_width, new_height);//消耗5ms
 					templ.image = slMat2cvMat(image_zed);  //格式转换
+					// 删去最后一个不需要的通道
+					cv::cvtColor(templ.image, templ.image, cv::COLOR_BGRA2BGR);
+					templ.image.convertTo(templ.image, CV_8U);
+					templ.image_l = templ.image;
+
 				}
 				if (picture == 1)
 				{
 					zed.retrieveImage(image_zed, VIEW_RIGHT, MEM_CPU, new_width, new_height);//消耗5ms
 					templ.image = slMat2cvMat(image_zed);
+					cv::cvtColor(templ.image, templ.image, cv::COLOR_BGRA2BGR);
+					templ.image.convertTo(templ.image, CV_8U);
+					templ.image_r = templ.image;
+				}
+				
+				std::cout << templ.image.channels() << std::endl;
+				assert(templ.image.channels() == 3);
+				dataProcess.image = templ.image;
+				if ((!(templ.auto_templ_left&& templ.auto_templ_right))&&templ.getColors)
+				{
+					templ.auto_Template();
+					switch (int(templ.auto_templ_left)+int(templ.auto_templ_right))
+					{
+					case 1:std::cout << "using color to create template for the first time" << std::endl; break;
+					case 2:std::cout << "using color to create template for the second time" << std::endl;
+						
+					}
 					
 				}
-				dataProcess.image = templ.image;
-				// 删去最后一个不需要的通道
-				cv::cvtColor(templ.image, templ.image, cv::COLOR_BGRA2BGR);
-				templ.image.convertTo(templ.image, CV_8U);
-				assert(templ.image.channels() == 3);
-				//std::cout << (templ.image.type() == CV_8UC3) << std::endl;
-				if (TemplateMatch::gettempl_RIGHT&& TemplateMatch::gettempl_LEFT)
+				if (templ.auto_templ_left&& templ.auto_templ_right)
 				{
 					
 					if (isTheFirstTimeOfLeft||isTheFirstTimeOfRight)
 					{						 
-						//是第一次打开（左或者右）则用模板位置初始化momentPoint
+						//是第一次打开（左或者右）则用模板位置初始化current_point and ex_point
 						
 						if (picture == 0)
 						{
 							for (int i = 0; i < 6; i++)
 							{
 								current_point[picture][i] = ex_point[picture][i] = templ.init_template(i);
-								printf("left initialize\n");
+								//printf("left initialize\n");
 							}
 							isTheFirstTimeOfLeft = false;
 						}
@@ -100,7 +117,7 @@ int main() {
 							for (int i = 0; i < 6; i++)
 							{
 								current_point[picture][i] = ex_point[picture][i] = templ.init_template(i+6);
-								printf("right initialize\n");
+								//printf("right initialize\n");
 							}
 							isTheFirstTimeOfRight = false;
 						}
@@ -112,8 +129,8 @@ int main() {
 						for (int i = 0; i < 6; i++)
 						{
 							
-							int predict_x = static_cast<int>(3 * current_point[picture][i].x - 3 * ex_point[picture][i].x + templ.start_point[picture][i].x);
-							int predict_y = static_cast<int>(3 * current_point[picture][i].y - 3 * ex_point[picture][i].y + templ.start_point[picture][i].y);//位置状态方程
+							int predict_x = static_cast<int>(1.8 * (current_point[picture][i].x -   ex_point[picture][i].x) + templ.start_point[picture][i].x)+ 1*(ex_point[picture][i].x-templ.start_point[picture][i].x);
+							int predict_y = static_cast<int>(1.8 * (current_point[picture][i].y -   ex_point[picture][i].y)+ templ.start_point[picture][i].y)+ 1*(ex_point[picture][i].y- templ.start_point[picture][i].y);//位置状态方程
 							templ.detectWindowPosition = cv::Point(predict_x, predict_y);//预测框中心点在整个图像上的位置
 							assert(predict_x - size_detection_window / 2 > 0 && predict_y - size_detection_window / 2 > 0 && predict_x + size_detection_window / 2 < templ.image.cols&&predict_y + size_detection_window / 2 < templ.image.rows);
 							//if(temp_momentpointpositionx - sizeOfDet/2>0&& temp_momentpointpositiony - sizeOfDet/2>0&& temp_momentpointpositionx + sizeOfDet/2<templ.image.cols&&temp_momentpointpositiony + sizeOfDet/2<templ.image.rows)
@@ -146,21 +163,22 @@ int main() {
 				}//框内为取色后的操作
 				if (picture == 0)
 				{
+
 					assert(templ.image.channels() == 3);
 					cv::imshow("LEFT", templ.image);
 					image1 = templ.image.clone();//不使用clone（），image1和image2会指向同一个内存
-					templ.image_l = templ.image.clone();
+					//templ.image_l = templ.image.clone();
 				}
 				if (picture == 1)
 				{
 					assert(templ.image.channels() == 3);
 					cv::imshow("RIGHT", templ.image);
 					image2 = templ.image.clone();
-					templ.image_r = templ.image.clone();
+					//templ.image_r = templ.image.clone();
 				}
 				picture++;
 			}//框内为循环操作左右两张图片
-			if (TemplateMatch::gettempl_RIGHT && TemplateMatch::gettempl_LEFT)
+			if (templ.auto_templ_left&& templ.auto_templ_right&&(!(isTheFirstTimeOfLeft||isTheFirstTimeOfRight)))
 			{
 				dataProcess.getJointAngle();
 				outfile << "time: " << dataProcess.time << "  hip:  " << dataProcess.hip << "  knee:  " << dataProcess.knee << "  ankle:  " << dataProcess.ankle << std::endl;
@@ -214,14 +232,14 @@ void matchImage(cv::Mat image1, cv::Mat image2, cv::Point current_point[2][6])
 			data[3 * j] = data1[3 * j]; // 这里为什么乘以3？怀疑是与通道数有关，注意根据通道数修改，否则matchImage函数出错
 			data[3 * j + 1] = data1[3 * j + 1];
 			data[3 * j + 2] = data1[3 * j + 2];
-			data[3 * j + 3] = data1[3 * j + 3];
+			//data[3 * j + 3] = data1[3 * j + 3];
 		}
 		for (int j = cols; j < 2 * cols; j++)
 		{
 			data[3 * j] = data2[3 * (j-cols)];
 			data[3 * j + 1] = data2[3 * (j - cols) + 1];
 			data[3 * j + 2] = data2[3 * (j - cols) + 2];
-			data[3 * j + 3] = data2[3 * (j - cols) + 3];
+			//data[3 * j + 3] = data2[3 * (j - cols) + 3];
 		}
 	}
 	for (int k = 0; k < 6; k++)
@@ -232,9 +250,9 @@ void matchImage(cv::Mat image1, cv::Mat image2, cv::Point current_point[2][6])
 		cv::line(image, current_point[0][k], tempPoint[k], cv::Scalar(0, 255, 0), 1);//注意current_point是全局变量//师兄这么写，不知何意
 	}
 	cv::imshow("Match", image);
-//	char name[20];
-//	static int time=0;
+ 	char name[20];
+ 	static int time=0;
 	 
-//	sprintf(name, "%d.jpg",time++);
-//	cv::imwrite(name, image);
+ 	sprintf(name, "%d.jpg",time++);
+ 	cv::imwrite(name, image);
 }
