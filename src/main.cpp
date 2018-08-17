@@ -26,9 +26,7 @@ int main() {
 	cv::namedWindow("LEFT");
 	cv::namedWindow("RIGHT");
 	 //要定义windows才能使用setMousecallBack
-	//cv::setMouseCallback("LEFT", TemplateMatch::on_Mouse_LEFT, 0);
-	//cv::setMouseCallback("RIGHT", TemplateMatch::on_Mouse_RIGHT, 0);   //MouseCallBack 要求静态函数 
-	cv::setMouseCallback("LEFT", templ.Mouse_getColor, 0);
+	cv::setMouseCallback("RIGHT", templ.Mouse_getColor, 0);
 
 	InitParameters init_params;
 	init_params.camera_resolution = RESOLUTION_HD720;//分辨率
@@ -47,9 +45,9 @@ int main() {
 	int new_width = image_size.width / 2;
 	int new_height = image_size.height / 2;
 	std::cout << new_width << " " << new_height << std::endl;
-
-	Mat image_zed(new_width, new_height, MAT_TYPE_8U_C3); //
-	std::cout << image_zed.getDataType() << std::endl;
+	Mat image_zed_left(new_width, new_height, MAT_TYPE_8U_C3);
+	Mat image_zed_right(new_width, new_height, MAT_TYPE_8U_C3); //
+	std::cout << image_zed_right.getDataType() << std::endl;
 	bool isTheFirstTimeOfLeft = true;
 	bool isTheFirstTimeOfRight = true;
 	cv::Point ex_point[2][6];  //上一帧的点坐标
@@ -59,78 +57,77 @@ int main() {
 		cv::Mat image1;cv::Mat image2;
 		if (zed.grab() == SUCCESS)//消耗3ms，取图片
 		{
-			int picture = 0;
-			while (picture < 2)
+			zed.retrieveImage(image_zed_right, VIEW_RIGHT, MEM_CPU, new_width, new_height);//消耗5ms
+			templ.image_r = slMat2cvMat(image_zed_right);
+			cv::cvtColor(templ.image_r, templ.image_r, cv::COLOR_BGRA2BGR);
+			templ.image_r.convertTo(templ.image_r, CV_8U);
+
+
+			zed.retrieveImage(image_zed_left, VIEW_LEFT, MEM_CPU, new_width, new_height);//消耗5ms
+			templ.image_l = slMat2cvMat(image_zed_left);  //格式转换
+			// 删去最后一个不需要的通道
+			cv::cvtColor(templ.image_l, templ.image_l, cv::COLOR_BGRA2BGR);
+			templ.image_l.convertTo(templ.image_l, CV_8U);
+			assert(templ.image_r.channels() == 3&& templ.image_l.channels()==3);
+			//dataProcess.image = templ.image;
+			if ((!(templ.auto_templ_left&& templ.auto_templ_right))&&templ.getColors)
 			{
-				if (picture == 0)
+				for (int picture = 0; picture < 2; picture++)
 				{
-					zed.retrieveImage(image_zed, VIEW_LEFT, MEM_CPU, new_width, new_height);//消耗5ms
-					templ.image = slMat2cvMat(image_zed);  //格式转换
-					// 删去最后一个不需要的通道
-					cv::cvtColor(templ.image, templ.image, cv::COLOR_BGRA2BGR);
-					templ.image.convertTo(templ.image, CV_8U);
-					templ.image_l = templ.image;
-
-				}
-				if (picture == 1)
-				{
-					zed.retrieveImage(image_zed, VIEW_RIGHT, MEM_CPU, new_width, new_height);//消耗5ms
-					templ.image = slMat2cvMat(image_zed);
-					cv::cvtColor(templ.image, templ.image, cv::COLOR_BGRA2BGR);
-					templ.image.convertTo(templ.image, CV_8U);
-					templ.image_r = templ.image;
-				}
-				
-				std::cout << templ.image.channels() << std::endl;
-				assert(templ.image.channels() == 3);
-				dataProcess.image = templ.image;
-				if ((!(templ.auto_templ_left&& templ.auto_templ_right))&&templ.getColors)
-				{
-					templ.auto_Template();
-					switch (int(templ.auto_templ_left)+int(templ.auto_templ_right))
+					if (picture == 0)
 					{
-					case 1:std::cout << "using color to create template for the first time" << std::endl; break;
-					case 2:std::cout << "using color to create template for the second time" << std::endl;
-						
+						templ.image = templ.image_l;
 					}
-					
+					if(picture == 1)
+					{
+						templ.image = templ.image_r;
+					}
+					templ.auto_Template(picture);
 				}
-				if (templ.auto_templ_left&& templ.auto_templ_right)
-				{
+			}
+			if (templ.auto_templ_left&& templ.auto_templ_right)
+			{
 					
-					if (isTheFirstTimeOfLeft||isTheFirstTimeOfRight)
-					{						 
-						//是第一次打开（左或者右）则用模板位置初始化current_point and ex_point
+				if (isTheFirstTimeOfLeft||isTheFirstTimeOfRight)
+				{						 
+					//是第一次打开（左或者右）则用模板位置初始化current_point and ex_point
 						
-						if (picture == 0)
-						{
-							for (int i = 0; i < 6; i++)
-							{
-								current_point[picture][i] = ex_point[picture][i] = templ.init_template(i);
-								//printf("left initialize\n");
-							}
-							isTheFirstTimeOfLeft = false;
-						}
-						if (picture == 1)
-
-						{
-							for (int i = 0; i < 6; i++)
-							{
-								current_point[picture][i] = ex_point[picture][i] = templ.init_template(i+6);
-								//printf("right initialize\n");
-							}
-							isTheFirstTimeOfRight = false;
-						}
+					
+					for (int i = 0; i < 6; i++)
+					{
+						templ.image = templ.image_l;
+						current_point[0][i] = ex_point[0][i] = templ.init_template(i);
+						//printf("left initialize\n");
+					}
+					isTheFirstTimeOfLeft = false;
+					
+					
+					for (int i = 0; i < 6; i++)
+					{
+						templ.image = templ.image_r.clone();
+						current_point[1][i] = ex_point[1][i] = templ.init_template(i+6);
+						//printf("right initialize\n");
+					}
+					isTheFirstTimeOfRight = false;
 						 
-					}
-					else
+				}
+				else
+				{
+					//利用“伪卡尔曼滤波”更新预测的位置
+					for (int picture = 0; picture < 2; picture++)
 					{
-						//利用“伪卡尔曼滤波”更新预测的位置
 						for (int i = 0; i < 6; i++)
 						{
-							
-							int predict_x = static_cast<int>(1.8 * (current_point[picture][i].x -   ex_point[picture][i].x) + templ.start_point[picture][i].x)+ 1*(ex_point[picture][i].x-templ.start_point[picture][i].x);
-							int predict_y = static_cast<int>(1.8 * (current_point[picture][i].y -   ex_point[picture][i].y)+ templ.start_point[picture][i].y)+ 1*(ex_point[picture][i].y- templ.start_point[picture][i].y);//位置状态方程
+							if (picture == 0)
+							{
+								templ.image = templ.image_l;//浅拷贝指向同一内存，以便画图
+							}
+							if (picture == 1)
+							{
+								templ.image = templ.image_r;
+							}
+							int predict_x = static_cast<int>(1.8 * (current_point[picture][i].x - ex_point[picture][i].x) + templ.start_point[picture][i].x + 1 * (ex_point[picture][i].x - templ.start_point[picture][i].x));
+							int predict_y = static_cast<int>(1.8 * (current_point[picture][i].y - ex_point[picture][i].y) + templ.start_point[picture][i].y + 1 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程
 							templ.detectWindowPosition = cv::Point(predict_x, predict_y);//预测框中心点在整个图像上的位置
 							assert(predict_x - size_detection_window / 2 > 0 && predict_y - size_detection_window / 2 > 0 && predict_x + size_detection_window / 2 < templ.image.cols&&predict_y + size_detection_window / 2 < templ.image.rows);
 							//if(temp_momentpointpositionx - sizeOfDet/2>0&& temp_momentpointpositiony - sizeOfDet/2>0&& temp_momentpointpositionx + sizeOfDet/2<templ.image.cols&&temp_momentpointpositiony + sizeOfDet/2<templ.image.rows)
@@ -138,6 +135,7 @@ int main() {
 								size_detection_window, size_detection_window)).clone();
 							//画出六个模板/矩形
 							cv::rectangle(templ.image, cv::Point(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2), cv::Point(predict_x + size_detection_window / 2, predict_y + size_detection_window / 2), cv::Scalar(0, 255, 0), 2, 8); //预测中心
+							cv::circle(templ.image, current_point[picture][i], 3, cv::Scalar(0, 0, 0), 3);
 							templ.start_point[picture][i] = ex_point[picture][i];
 							ex_point[picture][i] = current_point[picture][i];
 							// 注意各个点的更新顺序
@@ -150,45 +148,57 @@ int main() {
 								current_point[picture][i] = templ.update_template(i + 6) + templ.detectWindowPosition - cv::Point(size_detection_window / 2, size_detection_window / 2);//匹配中心
 							}
 						}
-
 					}
-					for (int j = 0; j < 6; j++)
+				}
+				for (int j = 0; j < 6; j++)
+				{
+					dataProcess.points[0][j] = current_point[0][j];
+					dataProcess.points[1][j] = current_point[1][j];
+				}
+				//画出三组关节之间的连线
+				for (int picture = 0; picture < 2; picture++)
+				{
+					if (picture == 0)
 					{
-						dataProcess.points[picture][j] = current_point[picture][j];
+						cv::line(templ.image_l, current_point[picture][0], current_point[picture][1], cv::Scalar(255, 0, 0), 2);
+						cv::line(templ.image_l, current_point[picture][2], current_point[picture][3], cv::Scalar(255, 0, 0), 2);
+						cv::line(templ.image_l, current_point[picture][4], current_point[picture][5], cv::Scalar(255, 0, 0), 2);
 					}
-					//画出三组关节之间的连线
-					cv::line(templ.image, current_point[picture][0], current_point[picture][1], cv::Scalar(255, 0, 0), 2);
-					cv::line(templ.image, current_point[picture][2], current_point[picture][3], cv::Scalar(255, 0, 0), 2);
-					cv::line(templ.image, current_point[picture][4], current_point[picture][5], cv::Scalar(255, 0, 0), 2);
-				}//框内为取色后的操作
+					else
+					{
+						cv::line(templ.image_r, current_point[picture][0], current_point[picture][1], cv::Scalar(255, 0, 0), 2);
+						cv::line(templ.image_r, current_point[picture][2], current_point[picture][3], cv::Scalar(255, 0, 0), 2);
+						cv::line(templ.image_r, current_point[picture][4], current_point[picture][5], cv::Scalar(255, 0, 0), 2);
+					}
+					
+				}
+				
+			}//框内为取色后的操作
+			for (int picture = 0; picture < 2; picture++)
+			{
 				if (picture == 0)
 				{
-
-					assert(templ.image.channels() == 3);
-					cv::imshow("LEFT", templ.image);
-					image1 = templ.image.clone();//不使用clone（），image1和image2会指向同一个内存
-					//templ.image_l = templ.image.clone();
+					cv::imshow("LEFT", templ.image_l);
+					image1 = templ.image_l.clone();//如果不使用clone（），image1和image2会指向同一个内存
+												 //templ.image_l = templ.image.clone();
 				}
 				if (picture == 1)
 				{
-					assert(templ.image.channels() == 3);
-					cv::imshow("RIGHT", templ.image);
-					image2 = templ.image.clone();
-					//templ.image_r = templ.image.clone();
+					cv::imshow("RIGHT", templ.image_r);
+					image2 = templ.image_r.clone();
 				}
-				picture++;
-			}//框内为循环操作左右两张图片
-			if (templ.auto_templ_left&& templ.auto_templ_right&&(!(isTheFirstTimeOfLeft||isTheFirstTimeOfRight)))
-			{
-				dataProcess.getJointAngle();
-				outfile << "time: " << dataProcess.time << "  hip:  " << dataProcess.hip << "  knee:  " << dataProcess.knee << "  ankle:  " << dataProcess.ankle << std::endl;
-				matchImage(image1, image2, current_point);
 			}
-			
-			char key = cv::waitKey(1);
-			if (key == 'q') 
-			{	break;}
 		}
+		if (templ.auto_templ_left&& templ.auto_templ_right)
+		{
+			dataProcess.getJointAngle();
+			outfile << "time: " << dataProcess.time << "  hip:  " << dataProcess.hip << "  knee:  " << dataProcess.knee << "  ankle:  " << dataProcess.ankle << std::endl;
+			matchImage(image1, image2, current_point);
+		}
+			
+		char key = cv::waitKey(1);
+		if (key == 'q') 
+		{	break;}
 	}
 	zed.close();
 	return 0;

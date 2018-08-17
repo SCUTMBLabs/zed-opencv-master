@@ -52,7 +52,7 @@ public:
 	void static on_Mouse_RIGHT(int event, int x, int y, int, void*);
 	void static on_Mouse_LEFT(int event, int x, int y, int, void*);
 	static void Mouse_getColor(int event, int x, int y, int, void*);
-	void auto_Template();// use color to get the first Template
+	void auto_Template(int picture);// use color to get the first Template
 	
 
 };
