@@ -1,8 +1,9 @@
 // ZED includes
 #include <sl_zed/Camera.hpp>
-#define size_detection_window 24
+#define size_detection_window 30
 // Sample includes
 #include <SaveDepth.hpp>
+#include <cmath>
 #include <iostream>
 #include"DataProcess.h"
 #include "TemplateMatch.h"
@@ -33,7 +34,7 @@ int main() {
 	init_params.camera_resolution = RESOLUTION_HD720;//分辨率
 	init_params.camera_fps = 60;//帧数
 	//init_params.depth_mode = DEPTH_MODE_NONE;
-	//init_params.svo_input_filename.set("F:\\zikang\\zed-recording-video\\video.svo");
+	init_params.svo_input_filename.set("F:\\zikang\\zed-recording-video\\video.svo");
 
 	ERROR_CODE err = zed.open(init_params);
 	if (err != SUCCESS) 
@@ -127,31 +128,49 @@ int main() {
 						}
 						for (int i = 0; i < 6; i++)
 						{
-							int predict_x = static_cast<int>(0.9 * (current_point[picture][i].x - ex_point[picture][i].x) + current_point[picture][i].x - 0.1 * (ex_point[picture][i].x - templ.start_point[picture][i].x));
-							int predict_y = static_cast<int>(0.9 * (current_point[picture][i].y - ex_point[picture][i].y) + current_point[picture][i].y - 0.1 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程
-							templ.detectWindowPosition = cv::Point(predict_x, predict_y);//预测框中心点在整个图像上的位置
-							if(predict_x - size_detection_window / 2 <= 0)
+							templ.predict_x[i] = static_cast<int>(0.88 * (current_point[picture][i].x - ex_point[picture][i].x) + current_point[picture][i].x 
+																			- 0.1 * (ex_point[picture][i].x - templ.start_point[picture][i].x));
+							templ.predict_y[i] = static_cast<int>(0.8 * (current_point[picture][i].y - ex_point[picture][i].y) + current_point[picture][i].y 
+																			- 0 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程	
+						}
+						double distance = pow(sqrt(templ.predict_x[1] - templ.predict_x[0]) + sqrt(templ.predict_y[1] - templ.predict_y[0]), 2);
+						if (size_detection_window*0.2<distance< size_detection_window*0.6)
+						{
+							templ.predict_x[1] += int(0.3*size_detection_window);
+							templ.predict_x[0] -= int(0.3*size_detection_window);
+						
+						}
+						if (distance <= 0.1*size_detection_window)
+						{
+							// 过于接近则尝试重新初始化
+							templ.auto_templ_left = false;
+							templ.auto_templ_right = false;
+						}
+						for (int i = 0; i < 6; i++)
+						{
+							if (templ.predict_x[i] - size_detection_window / 2 <= 0)
 							{
-							predict_x = size_detection_window / 2 +1;
+								templ.predict_x[i] = size_detection_window / 2 + 1;
 							}
-							if (predict_y - size_detection_window / 2 <= 0)
+							if (templ.predict_y[i] - size_detection_window / 2 <= 0)
 							{
-								predict_y = size_detection_window / 2 + 1;
+								templ.predict_y[i] = size_detection_window / 2 + 1;
 							}
-							if (predict_x + size_detection_window / 2 >= templ.image.cols)
+							if (templ.predict_x[i] + size_detection_window / 2 >= templ.image.cols)
 							{
-								predict_x = templ.image.cols - size_detection_window / 2 -1;
+								templ.predict_x[i] = templ.image.cols - size_detection_window / 2 - 1;
 							}
-							if (predict_y + size_detection_window / 2 >= templ.image.rows)
+							if (templ.predict_y[i] + size_detection_window / 2 >= templ.image.rows)
 							{
-								predict_y = templ.image.rows - size_detection_window / 2 - 1;
+								templ.predict_y[i] = templ.image.rows - size_detection_window / 2 - 1;
 							}
+							templ.detectWindowPosition = cv::Point(templ.predict_x[i], templ.predict_y[i]);//预测框中心点在整个图像上的位置
 							//if(temp_momentpointpositionx - sizeOfDet/2>0&& temp_momentpointpositiony - sizeOfDet/2>0&& temp_momentpointpositionx + sizeOfDet/2<templ.image.cols&&temp_momentpointpositiony + sizeOfDet/2<templ.image.rows)
-							templ.detectWindow = templ.image(cv::Rect(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2,
+							templ.detectWindow = templ.image(cv::Rect(templ.predict_x[i] - size_detection_window / 2, templ.predict_y[i] - size_detection_window / 2,
 								size_detection_window, size_detection_window)).clone();
 							//画出六个模板/矩形
-							cv::rectangle(templ.image, cv::Point(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2), 
-											cv::Point(predict_x + size_detection_window / 2, predict_y + size_detection_window / 2), cv::Scalar(0, 255, 0), 2, 8); //预测中心
+							cv::rectangle(templ.image, cv::Point(templ.predict_x[i] - size_detection_window / 2, templ.predict_y[i] - size_detection_window / 2),
+											cv::Point(templ.predict_x[i] + size_detection_window / 2, templ.predict_y[i] + size_detection_window / 2), cv::Scalar(0, 255, 0), 2, 8); //预测中心
 							cv::circle(templ.image, templ.detectWindowPosition, 3, cv::Scalar(0, 255, 0), 3);//对下一张图片的预测中心
 							cv::circle(templ.image, current_point[picture][i], 2, cv::Scalar(0, 0, 0), 2);//上一张的匹配点
 							templ.start_point[picture][i] = ex_point[picture][i];
@@ -259,6 +278,8 @@ void matchImage(cv::Mat image1, cv::Mat image2, cv::Point current_point[2][6])
 	{
 		cv::imshow("Match", image);
 	} //这里有时中断，怀疑是视频播完了，没有读入帧可供显示
+
+	//以下因为要存入硬盘所以会花费大量时间，只应在必要调试时使用
  	//char name[20];
  	//static int time=0;
  	//sprintf(name, "frames/%d.jpg",time++);

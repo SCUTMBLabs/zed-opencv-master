@@ -20,7 +20,8 @@ public:
 	static cv::Point start_point[2][6]; //初始帧模板中点坐标
 	static cv::Point originalPoint; //矩形框起点
 	static cv::Point processPoint; //矩形框终点
-
+	int predict_x[6];
+	int predict_y[6];
 	cv::Mat detectWindow;//检测窗口
 	static cv::Mat image;   //视频流
 	static cv::Mat imageCopy; //绘制矩形框时用来拷贝原图的图像
@@ -44,13 +45,9 @@ public:
 
 	int resultRows;  //模板匹配result的行
 	int resultcols;  //模板匹配result的列
-	int threshold = 120;
+	int threshold = 130;
 	static int index_template ;
 	static int CorlorsChosen[3];//采色结果,私有变量，测试公有
-
-
-	void static on_Mouse_RIGHT(int event, int x, int y, int, void*);
-	void static on_Mouse_LEFT(int event, int x, int y, int, void*);
 	static void Mouse_getColor(int event, int x, int y, int, void*);
 	void auto_Template(int picture);// use color to get the first Template
 	
