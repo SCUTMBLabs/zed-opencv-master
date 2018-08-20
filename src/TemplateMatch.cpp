@@ -1,6 +1,6 @@
 #include "TemplateMatch.h"
-
-#define size_template 8
+#include <numeric>
+#define size_template 18
 
 
 void TemplateMatch::ColorThresholding(cv::Mat img_copy)
@@ -48,14 +48,35 @@ cv::Point TemplateMatch::update_template(int i)
 
 
 	//注意detectwindow 和template_batch 的通道数是否相同！！！！
-	cv::matchTemplate(detectWindow, Template_batch[i], ImageResult, CV_TM_SQDIFF);  //匹配，返回多个匹配结果
-	cv::minMaxLoc(ImageResult, &minValue, &maxValude, &minPoint, &maxPoint, cv::Mat());  //匹配结果最优值及其坐标获取
-	
+
+	//cv::matchTemplate(detectWindow, Template_batch[i], ImageResult, CV_TM_SQDIFF);  //匹配，返回多个匹配结果
+	//cv::minMaxLoc(ImageResult, &minValue, &maxValude, &minPoint, &maxPoint, cv::Mat());  //匹配结果最优值及其坐标获取
 	//cv::rectangle(templ.image, templ.minPoint, cv::Point(templ.minPoint.x + templ.Template_batch[i].cols, templ.minPoint.y + templ.Template_batch[i].rows), cv::Scalar(0, 0, 255), 2);//在图中画出最有位置				
 	// Template_batch[i] = image(cv::Rect(maxPoint, cv::Point(maxPoint.x + Template_batch[i].cols,
-						//maxPoint.y + Template_batch[i].rows)));//更新当前模板匹配的模板 
+	//maxPoint.y + Template_batch[i].rows)));//更新当前模板匹配的模板 
+	cv::Mat  img_copy = detectWindow.clone();
+	std::vector<int> loc_x;
+	std::vector<int> loc_y;
+	for (int j = 0; j < img_copy.rows; j++)
+	{
+		uchar*data = img_copy.ptr<uchar>(j);
+		for (int i = 0; i < img_copy.cols; i++)
+		{
 
-	return minPoint +cv::Point(size_template / 2, size_template / 2);//batch在检测窗口中的中点位置坐标
+			if ((abs(data[3 * i] - CorlorsChosen[0]) + abs(data[3 * i + 1] - CorlorsChosen[1]) + abs(data[3 * i + 2] - CorlorsChosen[2])) < threshold)
+			{
+				loc_x.push_back(i);
+				loc_y.push_back(j);
+			}
+		}
+	}
+	
+	minPoint = cv::Point(int(std::accumulate(loc_x.begin(), loc_x.end(), 0)/loc_x.size()), 
+						int(std::accumulate(loc_y.begin(), loc_y.end(), 0)/loc_y.size()));
+	//清除内存
+	//std::vector<int>().swap(loc_x);
+	//std::vector<int>().swap(loc_y);
+	return minPoint;// +cv::Point(size_template / 2, size_template / 2);//batch在检测窗口中的中点位置坐标
 }
 
 
@@ -198,11 +219,8 @@ void  TemplateMatch::on_Mouse_LEFT(int event, int x, int y, int, void*)
 			while (it != contours.end())
 			{
 				cv::Moments mom = cv::moments(cv::Mat(*it++));
-				start_point[picture][i] = cv::Point(mom.m10 / mom.m00, mom.m01 / mom.m00);
-
-				Template_batch[picture * 6 + i] = image(cv::Rect(start_point[picture][i] - cv::Point(size_template / 2, size_template / 2),
-					start_point[picture][i] + cv::Point(size_template / 2, size_template / 2)));
-				cv::circle(image, start_point[picture][i], 2, cv::Scalar(0, 255, 0), 2);
+				start_point[picture][i] = cv::Point(mom.m10 / mom.m00, mom.m01 / mom.m00);	
+				//cv::circle(image, start_point[picture][i], 2, cv::Scalar(0, 255, 0), 2);
 				i++;
 			}
 			if (start_point[picture][0].x < start_point[picture][1].x)
@@ -212,6 +230,15 @@ void  TemplateMatch::on_Mouse_LEFT(int event, int x, int y, int, void*)
 				start_point[picture][0] = start_point[picture][1];
 				start_point[picture][1] = tempP;
 			}
+			for (int i = 0; i < 6; i++)//一定要在start_point被调整完之后才能初始化Template_batch
+			{
+				Template_batch[picture * 6 + i] = image(cv::Rect(start_point[picture][i] - cv::Point(size_template / 2, size_template / 2),
+					start_point[picture][i] + cv::Point(size_template / 2, size_template / 2)));
+				//char name[20];
+				//static int time0 = 0;
+				//sprintf(name, "frames/_%d.jpg", time0++);
+				//cv::imwrite(name, Template_batch[picture*6 +i]);
+			}
 			if (picture == 0)
 			{
 				auto_templ_left = true;
@@ -220,6 +247,7 @@ void  TemplateMatch::on_Mouse_LEFT(int event, int x, int y, int, void*)
 			{
 				auto_templ_right = true;
 			}
+			
 		}
 
 		else

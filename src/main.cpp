@@ -1,12 +1,13 @@
 // ZED includes
 #include <sl_zed/Camera.hpp>
-#define size_detection_window 40
+#define size_detection_window 24
 // Sample includes
 #include <SaveDepth.hpp>
 #include <iostream>
 #include"DataProcess.h"
 #include "TemplateMatch.h"
 #include <vector>
+//#include "utils.hpp"
 using namespace sl;
 
 cv::Mat slMat2cvMat(Mat& input);
@@ -31,6 +32,8 @@ int main() {
 	InitParameters init_params;
 	init_params.camera_resolution = RESOLUTION_HD720;//分辨率
 	init_params.camera_fps = 60;//帧数
+	//init_params.depth_mode = DEPTH_MODE_NONE;
+	//init_params.svo_input_filename.set("F:\\zikang\\zed-recording-video\\video.svo");
 
 	ERROR_CODE err = zed.open(init_params);
 	if (err != SUCCESS) 
@@ -42,8 +45,8 @@ int main() {
 
 	// Prepare new image size to retrieve half-resolution images
 	Resolution image_size = zed.getResolution();
-	int new_width = image_size.width / 2;
-	int new_height = image_size.height / 2;
+	int new_width = int(image_size.width / 2);
+	int new_height = int(image_size.height / 2);
 	std::cout << new_width << " " << new_height << std::endl;
 	Mat image_zed_left(new_width, new_height, MAT_TYPE_8U_C3);
 	Mat image_zed_right(new_width, new_height, MAT_TYPE_8U_C3); //
@@ -58,15 +61,13 @@ int main() {
 		if (zed.grab() == SUCCESS)//消耗3ms，取图片
 		{
 			zed.retrieveImage(image_zed_right, VIEW_RIGHT, MEM_CPU, new_width, new_height);//消耗5ms
-			templ.image_r = slMat2cvMat(image_zed_right);
-			cv::cvtColor(templ.image_r, templ.image_r, cv::COLOR_BGRA2BGR);
-			templ.image_r.convertTo(templ.image_r, CV_8U);
-
-
 			zed.retrieveImage(image_zed_left, VIEW_LEFT, MEM_CPU, new_width, new_height);//消耗5ms
+			templ.image_r = slMat2cvMat(image_zed_right);
 			templ.image_l = slMat2cvMat(image_zed_left);  //格式转换
 			// 删去最后一个不需要的通道
 			cv::cvtColor(templ.image_l, templ.image_l, cv::COLOR_BGRA2BGR);
+			cv::cvtColor(templ.image_r, templ.image_r, cv::COLOR_BGRA2BGR);
+			templ.image_r.convertTo(templ.image_r, CV_8U);	
 			templ.image_l.convertTo(templ.image_l, CV_8U);
 			assert(templ.image_r.channels() == 3&& templ.image_l.channels()==3);
 			//dataProcess.image = templ.image;
@@ -116,26 +117,43 @@ int main() {
 					//利用“伪卡尔曼滤波”更新预测的位置
 					for (int picture = 0; picture < 2; picture++)
 					{
+						if (picture == 0)
+						{
+							templ.image = templ.image_l;//浅拷贝指向同一内存，以便画图
+						}
+						if (picture == 1)
+						{
+							templ.image = templ.image_r;
+						}
 						for (int i = 0; i < 6; i++)
 						{
-							if (picture == 0)
-							{
-								templ.image = templ.image_l;//浅拷贝指向同一内存，以便画图
-							}
-							if (picture == 1)
-							{
-								templ.image = templ.image_r;
-							}
-							int predict_x = static_cast<int>(1.8 * (current_point[picture][i].x - ex_point[picture][i].x) + templ.start_point[picture][i].x + 1 * (ex_point[picture][i].x - templ.start_point[picture][i].x));
-							int predict_y = static_cast<int>(1.8 * (current_point[picture][i].y - ex_point[picture][i].y) + templ.start_point[picture][i].y + 1 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程
+							int predict_x = static_cast<int>(0.9 * (current_point[picture][i].x - ex_point[picture][i].x) + current_point[picture][i].x - 0.1 * (ex_point[picture][i].x - templ.start_point[picture][i].x));
+							int predict_y = static_cast<int>(0.9 * (current_point[picture][i].y - ex_point[picture][i].y) + current_point[picture][i].y - 0.1 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程
 							templ.detectWindowPosition = cv::Point(predict_x, predict_y);//预测框中心点在整个图像上的位置
-							assert(predict_x - size_detection_window / 2 > 0 && predict_y - size_detection_window / 2 > 0 && predict_x + size_detection_window / 2 < templ.image.cols&&predict_y + size_detection_window / 2 < templ.image.rows);
+							if(predict_x - size_detection_window / 2 <= 0)
+							{
+							predict_x = size_detection_window / 2 +1;
+							}
+							if (predict_y - size_detection_window / 2 <= 0)
+							{
+								predict_y = size_detection_window / 2 + 1;
+							}
+							if (predict_x + size_detection_window / 2 >= templ.image.cols)
+							{
+								predict_x = templ.image.cols - size_detection_window / 2 -1;
+							}
+							if (predict_y + size_detection_window / 2 >= templ.image.rows)
+							{
+								predict_y = templ.image.rows - size_detection_window / 2 - 1;
+							}
 							//if(temp_momentpointpositionx - sizeOfDet/2>0&& temp_momentpointpositiony - sizeOfDet/2>0&& temp_momentpointpositionx + sizeOfDet/2<templ.image.cols&&temp_momentpointpositiony + sizeOfDet/2<templ.image.rows)
 							templ.detectWindow = templ.image(cv::Rect(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2,
 								size_detection_window, size_detection_window)).clone();
 							//画出六个模板/矩形
-							cv::rectangle(templ.image, cv::Point(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2), cv::Point(predict_x + size_detection_window / 2, predict_y + size_detection_window / 2), cv::Scalar(0, 255, 0), 2, 8); //预测中心
-							cv::circle(templ.image, current_point[picture][i], 3, cv::Scalar(0, 0, 0), 3);
+							cv::rectangle(templ.image, cv::Point(predict_x - size_detection_window / 2, predict_y - size_detection_window / 2), 
+											cv::Point(predict_x + size_detection_window / 2, predict_y + size_detection_window / 2), cv::Scalar(0, 255, 0), 2, 8); //预测中心
+							cv::circle(templ.image, templ.detectWindowPosition, 3, cv::Scalar(0, 255, 0), 3);//对下一张图片的预测中心
+							cv::circle(templ.image, current_point[picture][i], 2, cv::Scalar(0, 0, 0), 2);//上一张的匹配点
 							templ.start_point[picture][i] = ex_point[picture][i];
 							ex_point[picture][i] = current_point[picture][i];
 							// 注意各个点的更新顺序
@@ -156,38 +174,17 @@ int main() {
 					dataProcess.points[1][j] = current_point[1][j];
 				}
 				//画出三组关节之间的连线
-				for (int picture = 0; picture < 2; picture++)
-				{
-					if (picture == 0)
-					{
-						cv::line(templ.image_l, current_point[picture][0], current_point[picture][1], cv::Scalar(255, 0, 0), 2);
-						cv::line(templ.image_l, current_point[picture][2], current_point[picture][3], cv::Scalar(255, 0, 0), 2);
-						cv::line(templ.image_l, current_point[picture][4], current_point[picture][5], cv::Scalar(255, 0, 0), 2);
-					}
-					else
-					{
-						cv::line(templ.image_r, current_point[picture][0], current_point[picture][1], cv::Scalar(255, 0, 0), 2);
-						cv::line(templ.image_r, current_point[picture][2], current_point[picture][3], cv::Scalar(255, 0, 0), 2);
-						cv::line(templ.image_r, current_point[picture][4], current_point[picture][5], cv::Scalar(255, 0, 0), 2);
-					}
-					
-				}
-				
-			}//框内为取色后的操作
-			for (int picture = 0; picture < 2; picture++)
-			{
-				if (picture == 0)
-				{
-					cv::imshow("LEFT", templ.image_l);
-					image1 = templ.image_l.clone();//如果不使用clone（），image1和image2会指向同一个内存
-												 //templ.image_l = templ.image.clone();
-				}
-				if (picture == 1)
-				{
-					cv::imshow("RIGHT", templ.image_r);
-					image2 = templ.image_r.clone();
-				}
-			}
+				cv::line(templ.image_l, current_point[0][0], current_point[0][1], cv::Scalar(255, 0, 0), 2);
+				cv::line(templ.image_l, current_point[0][2], current_point[0][3], cv::Scalar(255, 0, 0), 2);
+				cv::line(templ.image_l, current_point[0][4], current_point[0][5], cv::Scalar(255, 0, 0), 2);
+				cv::line(templ.image_r, current_point[1][0], current_point[1][1], cv::Scalar(255, 0, 0), 2);
+				cv::line(templ.image_r, current_point[1][2], current_point[1][3], cv::Scalar(255, 0, 0), 2);
+				cv::line(templ.image_r, current_point[1][4], current_point[1][5], cv::Scalar(255, 0, 0), 2);				
+			}//框内为取色后的操作	
+			cv::imshow("LEFT", templ.image_l);
+			image1 = templ.image_l.clone();//如果不使用clone（），image1和image2会指向同一个内存
+			cv::imshow("RIGHT", templ.image_r);
+			image2 = templ.image_r.clone();
 		}
 		if (templ.auto_templ_left&& templ.auto_templ_right)
 		{
@@ -195,7 +192,6 @@ int main() {
 			outfile << "time: " << dataProcess.time << "  hip:  " << dataProcess.hip << "  knee:  " << dataProcess.knee << "  ankle:  " << dataProcess.ankle << std::endl;
 			matchImage(image1, image2, current_point);
 		}
-			
 		char key = cv::waitKey(1);
 		if (key == 'q') 
 		{	break;}
@@ -259,10 +255,12 @@ void matchImage(cv::Mat image1, cv::Mat image2, cv::Point current_point[2][6])
 		tempPoint[k].y = current_point[1][k].y;
 		cv::line(image, current_point[0][k], tempPoint[k], cv::Scalar(0, 255, 0), 1);//注意current_point是全局变量//师兄这么写，不知何意
 	}
-	cv::imshow("Match", image);
- 	char name[20];
- 	static int time=0;
-	 
- 	sprintf(name, "%d.jpg",time++);
- 	cv::imwrite(name, image);
+	if (image.rows != 0 && image.cols != 0)
+	{
+		cv::imshow("Match", image);
+	} //这里有时中断，怀疑是视频播完了，没有读入帧可供显示
+ 	//char name[20];
+ 	//static int time=0;
+ 	//sprintf(name, "frames/%d.jpg",time++);
+ 	//cv::imwrite(name, image);
 }

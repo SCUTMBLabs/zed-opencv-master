@@ -44,7 +44,7 @@ public:
 
 	int resultRows;  //模板匹配result的行
 	int resultcols;  //模板匹配result的列
-	int threshold = 100;
+	int threshold = 120;
 	static int index_template ;
 	static int CorlorsChosen[3];//采色结果,私有变量，测试公有
 
