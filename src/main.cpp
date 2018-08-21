@@ -133,14 +133,14 @@ int main() {
 							templ.predict_y[i] = static_cast<int>(0.8 * (current_point[picture][i].y - ex_point[picture][i].y) + current_point[picture][i].y 
 																			- 0 * (ex_point[picture][i].y - templ.start_point[picture][i].y));//位置状态方程	
 						}
-						double distance = pow(sqrt(templ.predict_x[1] - templ.predict_x[0]) + sqrt(templ.predict_y[1] - templ.predict_y[0]), 2);
-						if (size_detection_window*0.2<distance< size_detection_window*0.6)
+						double distance = sqrt(pow(templ.predict_x[1] - templ.predict_x[0], 2) + pow(templ.predict_y[1] - templ.predict_y[0], 2));
+						if ((size_detection_window*0.2<distance)&&(distance < size_detection_window*0.3))
 						{
 							templ.predict_x[1] += int(0.3*size_detection_window);
 							templ.predict_x[0] -= int(0.3*size_detection_window);
 						
 						}
-						if (distance <= 0.1*size_detection_window)
+						if (distance <= 0.2*size_detection_window)
 						{
 							// 过于接近则尝试重新初始化
 							templ.auto_templ_left = false;
