@@ -1,4 +1,4 @@
-The system is: Windows - 10.0.16299 - AMD64
+The system is: Windows - 10.0.17134 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler:  
 Build flags: 
@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) ��������汾 14.0.25420.1
 ��Ȩ����(C) Microsoft Corporation����������Ȩ����
 
-��������ʱ��Ϊ 2018/7/4 16:56:32��
+��������ʱ��Ϊ 2018/8/14 20:44:03��
 �ڵ� 1 �ϵ���Ŀ��C:\Users\Xie\Desktop\�ƹ���\�������ĵ�\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CompilerIdC\CompilerIdC.vcxproj��(Ĭ��Ŀ��)��
 PrepareForBuild:
   ���ڴ���Ŀ¼��Debug\����
@@ -35,7 +35,7 @@ FinalizeBuildStatus:
     0 ������
     0 ������
 
-����ʱ�� 00:00:00.42
+����ʱ�� 00:00:01.20
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) ��������汾 14.0.25420.1
 ��Ȩ����(C) Microsoft Corporation����������Ȩ����
 
-��������ʱ��Ϊ 2018/7/4 16:56:32��
+��������ʱ��Ϊ 2018/8/14 20:44:05��
 �ڵ� 1 �ϵ���Ŀ��C:\Users\Xie\Desktop\�ƹ���\�������ĵ�\zed-opencv-master\build\CMakeFiles\3.12.0-rc1\CompilerIdCXX\CompilerIdCXX.vcxproj��(Ĭ��Ŀ��)��
 PrepareForBuild:
   ���ڴ���Ŀ¼��Debug\����
@@ -80,7 +80,7 @@ FinalizeBuildStatus:
     0 ������
     0 ������
 
-����ʱ�� 00:00:00.43
+����ʱ�� 00:00:01.11
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -92,79 +92,79 @@ The CXX compiler identification is MSVC, found in "C:/Users/Xie/Desktop/黄国�
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_ab9c8.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_10f09.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:33。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_ab9c8.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:07。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_10f09.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_ab9c8.dir\Debug\”。
+  正在创建目录“cmTC_10f09.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_ab9c8.dir\Debug\cmTC_ab9c8.tlog\”。
+  正在创建目录“cmTC_10f09.dir\Debug\cmTC_10f09.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_ab9c8.dir\Debug\cmTC_ab9c8.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_10f09.dir\Debug\cmTC_10f09.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ab9c8.dir\Debug\\" /Fd"cmTC_ab9c8.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCCompiler.c"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_10f09.dir\Debug\\" /Fd"cmTC_10f09.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCCompiler.c"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ab9c8.dir\Debug\\" /Fd"cmTC_ab9c8.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCCompiler.c"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_10f09.dir\Debug\\" /Fd"cmTC_10f09.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCCompiler.c"
   
   testCCompiler.c
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_ab9c8.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ab9c8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ab9c8.lib" /MACHINE:X64  /machine:x64 cmTC_ab9c8.dir\Debug\testCCompiler.obj
-  cmTC_ab9c8.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_ab9c8.exe
-  cmTC_ab9c8.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ab9c8.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_10f09.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_10f09.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_10f09.lib" /MACHINE:X64  /machine:x64 cmTC_10f09.dir\Debug\testCCompiler.obj
+  cmTC_10f09.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_10f09.exe
+  cmTC_10f09.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_10f09.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_ab9c8.dir\Debug\cmTC_ab9c8.tlog\unsuccessfulbuild”。
-  正在对“cmTC_ab9c8.dir\Debug\cmTC_ab9c8.tlog\cmTC_ab9c8.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_ab9c8.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_10f09.dir\Debug\cmTC_10f09.tlog\unsuccessfulbuild”。
+  正在对“cmTC_10f09.dir\Debug\cmTC_10f09.tlog\cmTC_10f09.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_10f09.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.51
+已用时间 00:00:01.18
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_f9a85.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_cbcc1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:34。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_f9a85.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:09。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_cbcc1.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_f9a85.dir\Debug\”。
+  正在创建目录“cmTC_cbcc1.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_f9a85.dir\Debug\cmTC_f9a85.tlog\”。
+  正在创建目录“cmTC_cbcc1.dir\Debug\cmTC_cbcc1.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_f9a85.dir\Debug\cmTC_f9a85.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_cbcc1.dir\Debug\cmTC_cbcc1.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9a85.dir\Debug\\" /Fd"cmTC_f9a85.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cbcc1.dir\Debug\\" /Fd"cmTC_cbcc1.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9a85.dir\Debug\\" /Fd"cmTC_f9a85.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cbcc1.dir\Debug\\" /Fd"cmTC_cbcc1.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCCompilerABI.c"
   
   CMakeCCompilerABI.c
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_f9a85.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_f9a85.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_f9a85.lib" /MACHINE:X64  /machine:x64 cmTC_f9a85.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_f9a85.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_f9a85.exe
-  cmTC_f9a85.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_f9a85.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_cbcc1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_cbcc1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_cbcc1.lib" /MACHINE:X64  /machine:x64 cmTC_cbcc1.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_cbcc1.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_cbcc1.exe
+  cmTC_cbcc1.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_cbcc1.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_f9a85.dir\Debug\cmTC_f9a85.tlog\unsuccessfulbuild”。
-  正在对“cmTC_f9a85.dir\Debug\cmTC_f9a85.tlog\cmTC_f9a85.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_f9a85.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_cbcc1.dir\Debug\cmTC_cbcc1.tlog\unsuccessfulbuild”。
+  正在对“cmTC_cbcc1.dir\Debug\cmTC_cbcc1.tlog\cmTC_cbcc1.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_cbcc1.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.50
+已用时间 00:00:01.20
 
 
 
@@ -172,40 +172,40 @@ FinalizeBuildStatus:
 Detecting C [] compiler features compiled with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_ee217.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_d1611.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:34。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_ee217.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:10。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_d1611.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_ee217.dir\Debug\”。
+  正在创建目录“cmTC_d1611.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_ee217.dir\Debug\cmTC_ee217.tlog\”。
+  正在创建目录“cmTC_d1611.dir\Debug\cmTC_d1611.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_ee217.dir\Debug\cmTC_ee217.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_d1611.dir\Debug\cmTC_d1611.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ee217.dir\Debug\\" /Fd"cmTC_ee217.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.c"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d1611.dir\Debug\\" /Fd"cmTC_d1611.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.c"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ee217.dir\Debug\\" /Fd"cmTC_ee217.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.c"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d1611.dir\Debug\\" /Fd"cmTC_d1611.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.c"
   
   feature_tests.c
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_ee217.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ee217.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ee217.lib" /MACHINE:X64  /machine:x64 cmTC_ee217.dir\Debug\feature_tests.obj
-  cmTC_ee217.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_ee217.exe
-  cmTC_ee217.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_ee217.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_d1611.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_d1611.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_d1611.lib" /MACHINE:X64  /machine:x64 cmTC_d1611.dir\Debug\feature_tests.obj
+  cmTC_d1611.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_d1611.exe
+  cmTC_d1611.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_d1611.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_ee217.dir\Debug\cmTC_ee217.tlog\unsuccessfulbuild”。
-  正在对“cmTC_ee217.dir\Debug\cmTC_ee217.tlog\cmTC_ee217.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_ee217.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_d1611.dir\Debug\cmTC_d1611.tlog\unsuccessfulbuild”。
+  正在对“cmTC_d1611.dir\Debug\cmTC_d1611.tlog\cmTC_d1611.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_d1611.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.51
+已用时间 00:00:01.18
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -213,79 +213,79 @@ FinalizeBuildStatus:
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_fc42d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_17740.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:35。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_fc42d.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:12。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_17740.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_fc42d.dir\Debug\”。
+  正在创建目录“cmTC_17740.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_fc42d.dir\Debug\cmTC_fc42d.tlog\”。
+  正在创建目录“cmTC_17740.dir\Debug\cmTC_17740.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_fc42d.dir\Debug\cmTC_fc42d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_17740.dir\Debug\cmTC_17740.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fc42d.dir\Debug\\" /Fd"cmTC_fc42d.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_17740.dir\Debug\\" /Fd"cmTC_17740.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fc42d.dir\Debug\\" /Fd"cmTC_fc42d.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_17740.dir\Debug\\" /Fd"cmTC_17740.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
   
   testCXXCompiler.cxx
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_fc42d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc42d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc42d.lib" /MACHINE:X64  /machine:x64 cmTC_fc42d.dir\Debug\testCXXCompiler.obj
-  cmTC_fc42d.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_fc42d.exe
-  cmTC_fc42d.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_fc42d.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_17740.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_17740.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_17740.lib" /MACHINE:X64  /machine:x64 cmTC_17740.dir\Debug\testCXXCompiler.obj
+  cmTC_17740.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_17740.exe
+  cmTC_17740.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_17740.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_fc42d.dir\Debug\cmTC_fc42d.tlog\unsuccessfulbuild”。
-  正在对“cmTC_fc42d.dir\Debug\cmTC_fc42d.tlog\cmTC_fc42d.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_fc42d.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_17740.dir\Debug\cmTC_17740.tlog\unsuccessfulbuild”。
+  正在对“cmTC_17740.dir\Debug\cmTC_17740.tlog\cmTC_17740.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_17740.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.56
+已用时间 00:00:01.20
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_a44fb.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_242fd.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:36。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_a44fb.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:14。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_242fd.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_a44fb.dir\Debug\”。
+  正在创建目录“cmTC_242fd.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_a44fb.dir\Debug\cmTC_a44fb.tlog\”。
+  正在创建目录“cmTC_242fd.dir\Debug\cmTC_242fd.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_a44fb.dir\Debug\cmTC_a44fb.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_242fd.dir\Debug\cmTC_242fd.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a44fb.dir\Debug\\" /Fd"cmTC_a44fb.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_242fd.dir\Debug\\" /Fd"cmTC_242fd.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a44fb.dir\Debug\\" /Fd"cmTC_a44fb.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_242fd.dir\Debug\\" /Fd"cmTC_242fd.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp"
   
   CMakeCXXCompilerABI.cpp
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_a44fb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_a44fb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_a44fb.lib" /MACHINE:X64  /machine:x64 cmTC_a44fb.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_a44fb.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_a44fb.exe
-  cmTC_a44fb.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_a44fb.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_242fd.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_242fd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_242fd.lib" /MACHINE:X64  /machine:x64 cmTC_242fd.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_242fd.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_242fd.exe
+  cmTC_242fd.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_242fd.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_a44fb.dir\Debug\cmTC_a44fb.tlog\unsuccessfulbuild”。
-  正在对“cmTC_a44fb.dir\Debug\cmTC_a44fb.tlog\cmTC_a44fb.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_a44fb.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_242fd.dir\Debug\cmTC_242fd.tlog\unsuccessfulbuild”。
+  正在对“cmTC_242fd.dir\Debug\cmTC_242fd.tlog\cmTC_242fd.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_242fd.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.54
+已用时间 00:00:01.20
 
 
 
@@ -293,40 +293,40 @@ FinalizeBuildStatus:
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_edec5.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_9eba2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) 生成引擎版本 14.0.25420.1
 版权所有(C) Microsoft Corporation。保留所有权利。
 
-生成启动时间为 2018/7/4 16:56:36。
-节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_edec5.vcxproj”(默认目标)。
+生成启动时间为 2018/8/14 20:44:16。
+节点 1 上的项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_9eba2.vcxproj”(默认目标)。
 PrepareForBuild:
-  正在创建目录“cmTC_edec5.dir\Debug\”。
+  正在创建目录“cmTC_9eba2.dir\Debug\”。
   正在创建目录“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\”。
-  正在创建目录“cmTC_edec5.dir\Debug\cmTC_edec5.tlog\”。
+  正在创建目录“cmTC_9eba2.dir\Debug\cmTC_9eba2.tlog\”。
 InitializeBuildStatus:
-  正在创建“cmTC_edec5.dir\Debug\cmTC_edec5.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+  正在创建“cmTC_9eba2.dir\Debug\cmTC_9eba2.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
 ClCompile:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_edec5.dir\Debug\\" /Fd"cmTC_edec5.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.cxx"
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_9eba2.dir\Debug\\" /Fd"cmTC_9eba2.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.cxx"
   用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
   版权所有(C) Microsoft Corporation。保留所有权利。
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_edec5.dir\Debug\\" /Fd"cmTC_edec5.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_9eba2.dir\Debug\\" /Fd"cmTC_9eba2.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\feature_tests.cxx"
   
   feature_tests.cxx
 Link:
-  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_edec5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_edec5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_edec5.lib" /MACHINE:X64  /machine:x64 cmTC_edec5.dir\Debug\feature_tests.obj
-  cmTC_edec5.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_edec5.exe
-  cmTC_edec5.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_edec5.pdb (Full PDB)
+  C:\Program Files (x86)\huangguowei\software\VS2015\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_9eba2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_9eba2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_9eba2.lib" /MACHINE:X64  /machine:x64 cmTC_9eba2.dir\Debug\feature_tests.obj
+  cmTC_9eba2.vcxproj -> C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\Debug\cmTC_9eba2.exe
+  cmTC_9eba2.vcxproj -> C:/Users/Xie/Desktop/黄国威/国威的文档/zed-opencv-master/build/CMakeFiles/CMakeTmp/Debug/cmTC_9eba2.pdb (Full PDB)
 FinalizeBuildStatus:
-  正在删除文件“cmTC_edec5.dir\Debug\cmTC_edec5.tlog\unsuccessfulbuild”。
-  正在对“cmTC_edec5.dir\Debug\cmTC_edec5.tlog\cmTC_edec5.lastbuildstate”执行 Touch 任务。
-已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_edec5.vcxproj”(默认目标)的操作。
+  正在删除文件“cmTC_9eba2.dir\Debug\cmTC_9eba2.tlog\unsuccessfulbuild”。
+  正在对“cmTC_9eba2.dir\Debug\cmTC_9eba2.tlog\cmTC_9eba2.lastbuildstate”执行 Touch 任务。
+已完成生成项目“C:\Users\Xie\Desktop\黄国威\国威的文档\zed-opencv-master\build\CMakeFiles\CMakeTmp\cmTC_9eba2.vcxproj”(默认目标)的操作。
 
 已成功生成。
     0 个警告
     0 个错误
 
-已用时间 00:00:00.53
+已用时间 00:00:01.20
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
